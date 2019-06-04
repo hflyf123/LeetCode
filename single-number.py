@@ -14,15 +14,18 @@ from typing import List
 # BEST SOLUTION
 
 
+# class Solution:
+#     def singleNumber(self, nums: List[int]) -> int:
+#         temp = 0
+#         for i in nums:
+#             temp ^= i
+#         return temp
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        temp = 0
-        for i in nums:
-            temp ^= i
-        return temp
-
+        return sum(set(nums)) * 2 - sum(nums)
 
 
 if __name__ == '__main__':
     soul = Solution()
-    print(soul.singleNumber([-1,-1,-2]))
+    print(soul.singleNumber([-1, -1, -2]))

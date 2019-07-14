@@ -35,7 +35,6 @@ class Solution:
             string = str(count) + temp + temp_res
         return string
 
-            
 
 so = Solution()
-print(so.countAndSay(2))
+print(so.countAndSay(5))

@@ -10,25 +10,32 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
-        self.traverse_path = []
+        self.traverse_path_pre = []
+        self.traverse_path_in = []
+        self.traverse_path_post = []
 
     def pre_order(self, root: 'TreeNode') -> list:
         if root:
-            self.traverse_path.append(root.val)
+            self.traverse_path_pre.append(root.val)
             self.pre_order(root.left)
             self.pre_order(root.right)
+        return self.traverse_path_pre
 
     def in_order(self, root: 'TreeNode') -> list:
         if root:
             self.in_order(root.left)
-            self.traverse_path.append(root.val)
+            self.traverse_path_in.append(root.val)
             self.in_order(root.right)
+        return self.traverse_path_in
+
 
     def post_order(self, root: 'TreeNode') -> list:
         if root:
             self.post_order(root.left)
             self.post_order(root.right)
-            self.traverse_path.append(root.val)
+            self.traverse_path_post.append(root.val)
+        return self.traverse_path_post
+
 
 
 if __name__ == "__main__":
@@ -49,8 +56,10 @@ if __name__ == "__main__":
     second.right = sixth
     fourth.left = seventh
     fourth.right = eighth
-    root.post_order(root)
-    print(root.traverse_path)
+    print(root.pre_order(root))
+    print(root.in_order(root))
+    print(root.post_order(root))
+
 
 
     

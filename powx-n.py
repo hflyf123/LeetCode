@@ -31,6 +31,19 @@ class Solution:
         if n % 2:
             return x * self.myPow(x, n-1)
         return self.myPow(x*x, n/2)
+
+    def myPow1(self, x: float, n: int) -> float:
+        if n < 0:
+            x = 1 / x
+            n = -n
+        pow = 1
+        while n:
+            if n & 1:
+                pow *= x
+            x *= x
+            n >>= 1
+        return pow
+
 if __name__ == "__main__":
     so = Solution()
-    print(so.myPow(2.00000, 10))
+    print(so.myPow1(2.00000, 10))

@@ -31,7 +31,7 @@ class Solution:
         if not board or len(board) == 0:
             return
         self._solve(board)
-        
+
     def _solve(self, board: List[List[str]]) -> bool:
         for i in range(len(board)):
             for j in range(len(board[0])):
@@ -43,34 +43,35 @@ class Solution:
                                 return True
                             else:
                                 board[i][j] = "."  # 还原
-            return False
+                    return False
         return True
 
-    def _is_valid(self, board: List[List[str]], row: int, col: int, c: int) -> bool:
-        for i in range(len(board)):
-            if board[row][i] != "." and board[row][i] == c:
+    def _is_valid(self, board: List[List[str]], row: int, col: int,
+                  c: int) -> bool:
+        for i in range(9):
+            if board[row][i] != "." and board[row][i] == str(c):
                 return False
-            if board[i][col] != "." and board[i][col] == c:
+            if board[i][col] != "." and board[i][col] == str(c):
                 return False
-            if board[3 * (row // 3) + i // 3][3 * (col // 3) + i % 3] != "." and board[3 * (row // 3) + i // 3][3 * (col // 3) + i % 3] == c:
+            if board[3 * (row // 3) +
+                     i // 3][3 * (col // 3) + i % 3] != "." and board[
+                         3 *
+                         (row // 3) + i // 3][3 *
+                                              (col // 3) + i % 3] == str(c):
                 return False
         return True
+
 
 if __name__ == "__main__":
-    board = [
-  ["5","3",".",".","7",".",".",".","."],
-  ["6",".",".","1","9","5",".",".","."],
-  [".","9","8",".",".",".",".","6","."],
-  ["8",".",".",".","6",".",".",".","3"],
-  ["4",".",".","8",".","3",".",".","1"],
-  ["7",".",".",".","2",".",".",".","6"],
-  [".","6",".",".",".",".","2","8","."],
-  [".",".",".","4","1","9",".",".","5"],
-  [".",".",".",".","8",".",".","7","9"]
-]
+    board = [["5", "3", ".", ".", "7", ".", ".", ".", "."],
+              ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+              [".", "9", "8", ".", ".", ".", ".", "6", "."],
+              ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+              ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+              ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+              [".", "6", ".", ".", ".", ".", "2", "8", "."],
+              [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+              [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
     so = Solution()
     so.solveSudoku(board)
     print(board)
-        
-        
-                            

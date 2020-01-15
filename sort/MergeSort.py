@@ -22,6 +22,7 @@ def merge(nums: [int]) -> List[int]:
 
 
 def merge_sort(left: List[int], right: List[int]) -> List[int]:
+    print("当前排序的数组是：", left, "和", right)
     result = []
     while len(left) > 0 and len(right) > 0:
         if left[0] < right[0]:
@@ -37,4 +38,4 @@ def merge_sort(left: List[int], right: List[int]) -> List[int]:
 
 
 if __name__ == '__main__':
-    print(merge([]))
+    print(merge([5, 4, 1, 3, 2, 6, 7, 8]))
